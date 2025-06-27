@@ -1,0 +1,13 @@
+name: Trigger Image Alt Upload
+
+on:
+  schedule:
+    - cron: '2 18 * * *'  # 11:32 PM IST
+  workflow_dispatch:
+
+jobs:
+  image-alt-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call /track/batch-image-alt
+        run: curl -X POST http://172.188.80.68/mcp1/track/batch-image-alt
