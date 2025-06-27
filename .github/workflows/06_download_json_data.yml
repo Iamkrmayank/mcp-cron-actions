@@ -1,0 +1,13 @@
+name: Trigger Download JSONL Data
+
+on:
+  schedule:
+    - cron: '25 18 * * *'  # 11:40 PM IST
+  workflow_dispatch:
+
+jobs:
+  download-jsonl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call /azure/download_jsonl_data
+        run: curl -X GET http://172.188.80.68/mcp1/azure/download_jsonl_data
