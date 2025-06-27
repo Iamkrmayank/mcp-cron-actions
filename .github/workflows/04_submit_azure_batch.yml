@@ -1,0 +1,13 @@
+name: Trigger Azure Batch Submit
+
+on:
+  schedule:
+    - cron: '54 17 * * *'  # 11:24 PM IST
+  workflow_dispatch:
+
+jobs:
+  submit-azure-batch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call /azure/submit-batch
+        run: curl -X POST http://172.188.80.68/mcp1/azure/submit-batch
