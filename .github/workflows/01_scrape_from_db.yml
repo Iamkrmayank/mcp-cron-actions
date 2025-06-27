@@ -1,0 +1,13 @@
+name: Trigger Scrape From DB
+
+on:
+  schedule:
+    - cron: '30 17 * * *'  # 11:00 PM IST
+  workflow_dispatch:
+
+jobs:
+  scrape-db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call /quotes/scrape-from-db
+        run: curl -X POST http://172.188.80.68/mcp1/quotes/scrape-from-db
